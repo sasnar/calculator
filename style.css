@@ -55,6 +55,15 @@ body {
     background-color: darkorange;
 }
 
+button:hover {
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+    filter: brightness(0.95);
+}
+
+button:active {
+    filter: brightness(1.1);
+}
+
 .tool {
     height: 75px;
     width: 65px;
@@ -71,5 +80,6 @@ button {
     border: solid black 1px;
     border-radius: 10px;
 }
+
 
 

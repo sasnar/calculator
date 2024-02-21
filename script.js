@@ -28,16 +28,21 @@ function calculator() {
             case "-":
                 return subtract(firstNumber, secondNumber);
             case "*":
-                return multiply(firstNumber, secondNumber);
+                let result = multiply(firstNumber, secondNumber);
+                if (result % 1 == 0) {
+                    return multiply(firstNumber, secondNumber); 
+                } else {
+                    return Math.round(result * 100) / 100;
+                }
             case "/":
                 if(firstNumber == 0 || secondNumber == 0) {
-                    display.textContent = "You cannot divide by zero!";
                     for (let i = 0; i < digits.length; i ++) {
                         digits[i].disabled = true;
                     }
                     for (let i = 0; i < operands.length; i++) {
                         operands[i].disabled = true;
                     }
+                    return "You cannot divide by zero!";
                 } else {
                     let result = divide(firstNumber, secondNumber);
                     if (result % 1 == 0) {
@@ -48,6 +53,8 @@ function calculator() {
                 }
             case "=":
                 flag = false;
+                console.log("equal");
+                return +display.textContent;
         }
     }
 
