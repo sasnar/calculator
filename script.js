@@ -96,6 +96,21 @@ function calculator() {
         window.location.reload();
     });
 
+    document.addEventListener('keydown', function checkCalcKey(event) {
+        const key = event.key;
+        const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', '='];
+    
+        if (allowedKeys.includes(key)) {
+            if (key >= '0' && key <= '9') {
+                document.querySelector(`.digit[value='${key}']`).click();
+            } else {
+                document.querySelector(`.operand[value='${key}']`).click();
+            }
+        }
+    
+        event.preventDefault(); 
+    });
+
 
 }
 
